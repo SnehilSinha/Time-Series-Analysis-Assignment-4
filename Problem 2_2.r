@@ -16,22 +16,6 @@ data <- data %>%
     Phi_l_t = I
   )
 
-# Plot all series
-p1 <- ggplot(data, aes(x = time, y = Y_t)) +
-  geom_line(color = "red") + labs(title = "Transformer Temperature", y = "Y_t (°C)", x = "")
-
-p2 <- ggplot(data, aes(x = time, y = T_a_t)) +
-  geom_line(color = "blue") + labs(title = "Outdoor Air Temperature", y = "T_a_t (°C)", x = "")
-
-p3 <- ggplot(data, aes(x = time, y = Phi_s_t)) +
-  geom_line(color = "orange") + labs(title = "Solar Radiation", y = "Phi_s_t (W/m²)", x = "")
-
-p4 <- ggplot(data, aes(x = time, y = Phi_l_t)) +
-  geom_line(color = "green") + labs(title = "Transformer Load", y = "Phi_l_t (kA)", x = "Time Step")
-
-# Display combined plot
-(p1 / p2 / p3 / p4) + plot_layout(guides = "collect")
-
 # Prepare data for Kalman filter
 df <- data %>%
   transmute(
