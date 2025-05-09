@@ -110,8 +110,8 @@ p_res <- ggplot(data.frame(t = 1:length(residuals), resid = residuals), aes(x = 
   labs(title = "Residuals", y = "Residual", x = "Time")
 
 # ACF and PACF
-#acf_plot <- ggAcf(residuals, lag.max = 30) + ggtitle("ACF of residuals")
-#pacf_plot <- ggPacf(residuals, lag.max = 30) + ggtitle("PACF of residuals")
+acf_plot <- ggAcf(residuals, lag.max = 30) + ggtitle("ACF of residuals")
+pacf_plot <- ggPacf(residuals, lag.max = 30) + ggtitle("PACF of residuals")
 
 # QQ-plot
 qq_plot <- ggplot(data.frame(resid = residuals), aes(sample = resid)) +
